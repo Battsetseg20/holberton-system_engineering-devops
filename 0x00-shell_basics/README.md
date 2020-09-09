@@ -1,1 +1,15 @@
-Basic shell commands
+pwd current working directory
+cd
+ls
+pwd
+less
+file
+ln
+cp
+mv
+rm
+mkdir
+type
+which
+help
+man
