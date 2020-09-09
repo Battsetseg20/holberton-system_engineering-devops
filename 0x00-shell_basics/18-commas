@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -apxm --group-directories-first '\n'
