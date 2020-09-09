@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -apxm --group-directories-first
+ls -apxmv
