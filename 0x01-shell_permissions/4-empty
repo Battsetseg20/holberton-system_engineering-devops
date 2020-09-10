@@ -1,2 +1,2 @@
-!#/bin/bash
-touch
+#!/bin/bash
+touch hello
