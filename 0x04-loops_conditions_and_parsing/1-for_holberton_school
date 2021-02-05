@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times using for loop
 # printf "Holberton School\n%.0s" {1..10}
-for ((i = 0; i < 10 ; i++));
+for ((i=0; i<=9; i++))
 do
-    echo "Holberton school"
-done
+    echo "Holberton School"
+done 
