@@ -11,6 +11,7 @@
 
 FILE="holbertonschool"
 if [ -e $FILE ]; then
+    echo "$FILE file exists"
 	if [ -s $FILE ]; then
 		echo "$FILE file is not empty"
 	else
