@@ -9,7 +9,7 @@
 #      if the file is a regular file: holbertonschool is a regular file
 #      if the file is not a regular file: (nothing)
 
-FILE=holbertonschool
+FILE="holbertonschool"
 if [ -e $FILE ]; then
 	if [ -s $FILE ]; then
 		echo "$FILE file is not empty"
@@ -18,7 +18,7 @@ if [ -e $FILE ]; then
 	fi
 
 	if [ -f $FILE ]; then
-	     	echo "$FILE file is a regular file"
+	echo "$FILE file is a regular file"
 	fi
 else
 	echo "$FILE file does not exit"
