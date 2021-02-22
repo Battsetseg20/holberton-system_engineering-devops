@@ -27,7 +27,7 @@ sylvain@ubuntu$ ./example.rb 127.0.0.a
 
 ### Task 1
 
-- Find the regular expression that will match: 2-5 `t`between `hb`qnd `n
+- Find the regular expression that will match: 2-5 `t`between `hb`and `n`.
 - Create a Ruby script that accepts one argument and pass it to a regular expression matching method`
 
 ### Task 2
