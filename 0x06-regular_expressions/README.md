@@ -22,17 +22,17 @@ sylvain@ubuntu$ ./example.rb 127.0.0.a
 
 ### Task 0
 
-- The regular expression must match `Holberton
+- The regular expression must match `Holberton`
 - Create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
 ### Task 1
 
-- Find the regular expression that will match: 2`-5 `t`between `hb`qnd `n
+- Find the regular expression that will match: 2-5 `t`between `hb`qnd `n
 - Create a Ruby script that accepts one argument and pass it to a regular expression matching method`
 
 ### Task 2
 
-- Find the regular expression that will match `hbn` with 1 or more `t`'s in between `hb` and `n`.
+- Find the regular expression that will match `hbn` with 0 or more `b`'s in between `hb` and `n`.
 - Create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
 ### Task 3
