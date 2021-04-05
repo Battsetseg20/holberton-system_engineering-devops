@@ -86,7 +86,7 @@ $ gem install puppet-lint -v 2.1.1
   Terminated
   root@d391259bf577:/#
   ````
-  root@d391259bf577:/# 
+
   
 ## Ressources
 
