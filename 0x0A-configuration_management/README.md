@@ -90,9 +90,9 @@ $ gem install puppet-lint -v 2.1.1
   
 ## Ressources
 
-https://www.digitalocean.com/community/tutorials/an-introduction-to-configuration-management
-https://puppet.com/docs/puppet/3.8/types/exec.html
-https://puppet-lint.com/
+- https://www.digitalocean.com/community/tutorials/an-introduction-to-configuration-management
+- https://puppet.com/docs/puppet/3.8/types/exec.html
+- https://puppet-lint.com/
   
 
 
