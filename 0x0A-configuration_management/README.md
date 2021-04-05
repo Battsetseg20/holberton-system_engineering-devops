@@ -79,7 +79,7 @@ $ gem install puppet-lint -v 2.1.1
   Notice: Finished catalog run in 0.10 seconds
   root@d391259bf577:/# 
   ```
-  *Terminal #0 - process has been terminated
+  * Terminal #0 - process has been terminated
   
   ```
   root@d391259bf577:/# ./killmenow
