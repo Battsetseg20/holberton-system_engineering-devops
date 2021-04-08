@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me is redirecting to another page. Requirements:
+# - Redirection must be a 301 Moved Permanently
+# - Answer file is bash script containing commands to automatically configure a Ubuntu machine to respect requirements
+
+sudo apt -y update
+sudo apt -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+sudo sed -i 's/listen 80 default_server;/listen 80 default_server;\n	 rewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;/' /etc/nginx/sites-available/default
+sudo service nginx restart
