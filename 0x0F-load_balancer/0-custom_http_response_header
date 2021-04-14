@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Same configuration as web-1
+# shellcheck disable=SC2154
+# Adds custom header X-Served-By: $HOSTNAME to Nginx config
+
+sudo apt -y update
+sudo apt -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+sudo touch /var/www/html/404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
+sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\n	error_page 404 \/404.html;\n	rewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;\n add_header X-Served-By $hostname;/" /etc/nginx/sites-available/default
+sudo service nginx restart
