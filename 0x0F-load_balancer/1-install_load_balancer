@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
-# Installs Haproxy v.1.8
-# Using a roundrobin algorithm
-# Config traffic to web-01 and web-02
+# Install HAproxy
+# config traffic to web-01 and web-02
+apt-get -y update
 
-apt-get update
-apt-get install -y software-properties-common
+apt-get -y install software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-1.8
-apt-get install -y haproxy=1.8.\*
 
-printf %s "http
-    bind *:80
-    mode http
-    default_backend web-backend
-
-backend web-backend
-    balance roundrobin
-    server 2482-web-1 35.196.60.120:80 check
-    server 2482-web-2 35.237.139.171:80 check
-" >> /etc/haproxy/haproxy.cfg
+apt-get -y update
+apt-get -y install haproxy=1.8.\*
+echo "
+frontend frontend
+        bind *:80
+        mode http
+        default_backend backend
+backend backend
+        mode http
+        balance roundrobin
+        server 2482-web-01 35.196.60.120:80 check
+        server 2482-web-02 35.237.139.171:80 check" >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy start
