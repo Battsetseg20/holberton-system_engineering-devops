@@ -41,10 +41,15 @@ frontend frontend
         bind *:80
 	bind *:443 ssl crt /etc/letsencrypt/live/tsetseg.tech/myfullfile.pem
 	http-request redirect scheme https unless { ssl_fc }
-        default_backend backend
+	reqadd X-Forwarded-Proto:\ https
+	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+	use_backend letsencrypt-backend if letsencrypt-acl
+	default_backend backend
 
 backend backend
         mode http
         balance roundrobin
         server 2482-web-01 35.196.60.120:80 check
         server 2482-web-02 35.237.139.171:80 check
+
+backend letsencrypt-backend
