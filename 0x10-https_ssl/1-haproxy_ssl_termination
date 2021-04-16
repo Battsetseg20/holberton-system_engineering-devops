@@ -8,6 +8,7 @@ global
 	group haproxy
 	daemon
 	tune.ssl.default-dh-param 2048
+
 # Default SSL material locations
   ca-base /etc/ssl/certs
   crt-base /etc/ssl/private
@@ -37,10 +38,11 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 frontend frontend
-		bind *:80
-		bind *:443 ssl crt /etc/letsencrypt/live/tsetseg.tech/myfullfile.pem
-		reqadd X-Forwarded-Proto:\ https
-		default_backend backend
+	 bind *:80
+	 bind *:443 ssl crt /etc/letsencrypt/live/tsetseg.tech/my_cert_key.pem
+	 redirect scheme https if !{ ssl_fc }
+	 mode http
+	 default_backend backend
 
 backend backend
         balance roundrobin
