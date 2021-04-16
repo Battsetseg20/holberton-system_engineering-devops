@@ -7,7 +7,8 @@ global
 	user haproxy
 	group haproxy
 	daemon
-
+	maxconn 2048
+	tune.ssl.default-dh-param 2048
 	# Default SSL material locations
 	ca-base /etc/ssl/certs
 	crt-base /etc/ssl/private
@@ -36,20 +37,24 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend frontend
-        mode http
-        bind *:80
-	bind *:443 ssl crt /etc/letsencrypt/live/tsetseg.tech/myfullfile.pem
-	http-request redirect scheme https unless { ssl_fc }
-	reqadd X-Forwarded-Proto:\ https
-	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-	use_backend letsencrypt-backend if letsencrypt-acl
+frontend www-http
+	 bind *:80
+        reqadd X-Forwarded-Proto:\ http
 	default_backend backend
 
+
+frontend frontend
+	 bind *:443 ssl crt /etc/letsencrypt/live/tsetseg.tech/myfullfile.pem
+	 reqadd X-Forwarded-Proto:\ https
+	 acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+	 use_backend letsencrypt-backend if letsencrypt-acl
+	 default_backend backend
+
 backend backend
-        mode http
+        redirect scheme https if !{ ssl_fc }
         balance roundrobin
         server 2482-web-01 35.196.60.120:80 check
         server 2482-web-02 35.237.139.171:80 check
 
 backend letsencrypt-backend
+	server letsencrypt 127.0.0.1:54321
