@@ -1,3 +1,8 @@
+<p align="center">
+  <img width="409" height="128" src="https://www.holbertonschool.com/holberton-logo.png">
+</p>
+
+
 ## Firewall
 
 A firewall is a system that provides network (hardware or software) security by filtering incoming and outgoing network traffic based on a set of user-defined rules.
