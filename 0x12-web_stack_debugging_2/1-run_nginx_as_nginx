@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Bash script that configures the container to fit the above requirements:
+# - nginx must be running as nginx user
+# - nginx must be listening on all active IPs on port 8080
+# - You cannot use apt-get remove
+
+chown nginx:nginx /etc/nginx/nginx.conf 
+chmod 700 /etc/nginx/nginx.conf 
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default 
+service nginx stop 
+sudo -u nginx service nginx restart
